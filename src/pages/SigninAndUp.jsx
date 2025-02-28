@@ -89,12 +89,12 @@ const SigninAndUp = ({ nextStep }) => {
     },
   });
   // Google Sign In
-  const handleGoogleSignIn = async () => {
-    window.open(
-      `http://test-ecomerce.xn--hrt-w-ova.de/api/user/social-login?account_type=google`,
-      "_self"
-    );
-  };
+  // const handleGoogleSignIn = async () => {
+  //   window.open(
+  //     `http://test-ecomerce.xn--hrt-w-ova.de/api/user/social-login?account_type=google`,
+  //     "_self"
+  //   );
+  // };
   // Formik for Sign Up
   const formikSignUp = useFormik({
     initialValues: {
