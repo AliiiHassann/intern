@@ -1,0 +1,30 @@
+body.dark-mode .footer-div {
+  background-color: #221506;
+}
+.footer-div {
+  margin-top: auto;
+  background-color: #f7f7f7;
+  padding: 30px;
+}
+.main-text-footer {
+  color: #f6973f;
+}
+.copyright {
+  color: #1e2833;
+}
+@media (max-width: 480px) {
+  .footer-text {
+    padding: 1.5rem 0;
+  }
+  .copyright {
+    text-align: unset !important;
+  }
+  .term-conditions {
+    text-align: unset !important;
+  }
+  .privacy-policy {
+    display: flex;
+    justify-content: center;
+    padding-top: 1.5rem !important;
+  }
+}

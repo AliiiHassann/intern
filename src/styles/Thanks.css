@@ -1,0 +1,9 @@
+.thanks-container {
+  height: 100vh;
+}
+.form-buttons .thanks-go-to-home {
+  width: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}

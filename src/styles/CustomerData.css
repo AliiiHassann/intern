@@ -1,0 +1,26 @@
+.customer-container {
+  height: 100vh;
+}
+body.dark-mode .customer-container input {
+  color: white;
+}
+.customer-data-form {
+  border: none;
+  border-bottom: 1px solid black;
+  width: 100%;
+  background-color: transparent;
+  padding: 20px;
+}
+.form-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 30px;
+}
+.form-buttons button {
+  background-color: #e58411;
+  padding: 18px;
+  font-size: 16px;
+  border-radius: 12px;
+  color: white;
+}

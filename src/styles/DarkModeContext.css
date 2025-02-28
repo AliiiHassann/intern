@@ -1,0 +1,11 @@
+body {
+  background-color: #f4f4f9 !important;
+  color: black !important;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark Theme */
+body.dark-mode {
+  background-color: #222 !important;
+  color: #f4f4f9 !important;
+}

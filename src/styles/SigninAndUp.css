@@ -1,0 +1,340 @@
+.signin-holder {
+  position: relative;
+  top: 80px;
+  min-height: 160vh;
+}
+.layer {
+  width: 100%;
+  height: 220vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: -300px;
+  z-index: 2;
+}
+.loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  width: 60px;
+  aspect-ratio: 2;
+  --_g: no-repeat radial-gradient(circle closest-side, #000 90%, #0000);
+  background: var(--_g) 0% 50%, var(--_g) 50% 50%, var(--_g) 100% 50%;
+  background-size: calc(100% / 3) 50%;
+  animation: l3 1s infinite linear;
+}
+@keyframes l3 {
+  20% {
+    background-position: 0% 0%, 50% 50%, 100% 50%;
+  }
+  40% {
+    background-position: 0% 100%, 50% 0%, 100% 50%;
+  }
+  60% {
+    background-position: 0% 50%, 50% 100%, 100% 0%;
+  }
+  80% {
+    background-position: 0% 50%, 50% 50%, 100% 100%;
+  }
+}
+.vector-2-holder {
+  position: absolute;
+  top: 30%;
+  left: 0;
+  overflow: hidden;
+}
+.vector-2-holder .vector-3 {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.vector-2-holder .vector-33 {
+  position: absolute;
+  top: 30px;
+  left: 0px;
+}
+.vector-3-holder {
+  position: absolute;
+  top: 0;
+  right: 0;
+  overflow: hidden;
+}
+.vector-3-holder .vector-2 {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.vector-3-holder .vector-22 {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+.signin-holder .welcome-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.signin-flex {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 8px;
+  margin-top: 80px;
+  height: min-content;
+  justify-content: flex-start;
+  overflow: hidden;
+  padding: 0 24px;
+  position: relative;
+  width: 100%;
+}
+.sign-in-form {
+  align-items: flex-start;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 55px;
+  justify-content: flex-start;
+  overflow: hidden;
+  padding: 32px;
+  position: relative;
+  border-radius: 8px;
+  width: 666px !important;
+  height: 672px;
+  background-color: #fbfbfb;
+}
+.sign-up-form {
+  align-items: flex-start;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 30px;
+  justify-content: flex-start;
+  overflow: hidden;
+  padding: 32px;
+  position: relative;
+  border-radius: 8px;
+  width: 666px !important;
+  height: 672px;
+  background-color: #fbfbfb;
+}
+body.dark-mode .sign-in-form,
+body.dark-mode .sign-up-form {
+  color: #000;
+}
+.sign-in-form input,
+.sign-up-form input {
+  border: none;
+  border-bottom: 1px solid black;
+  width: 100%;
+  background-color: transparent;
+}
+.sign-in-button {
+  position: absolute;
+  left: 50%;
+  bottom: 0%;
+  transform: translate(-50%, -50%);
+  background-color: #e58411;
+  width: 80%;
+  height: 35px;
+  text-align: center;
+  border-radius: 18px;
+  color: white;
+  font-size: 14px;
+}
+.sign-up-button {
+  position: absolute;
+  left: 50%;
+  bottom: 20%;
+  transform: translate(-50%, -50%);
+  background-color: #e58411;
+  width: 80%;
+  height: 35px;
+  text-align: center;
+  border-radius: 18px;
+  color: white;
+  font-size: 14px;
+}
+.checkbox-wrapper-18 {
+  padding-top: 4px;
+}
+.checkbox-wrapper-18 .round {
+  position: relative;
+}
+
+.checkbox-wrapper-18 .round label {
+  background-color: #d9d9d9;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 22px;
+  width: 22px;
+  display: block;
+}
+
+.checkbox-wrapper-18 .round label:after {
+  content: "";
+  border: 2px solid #fff;
+  border-top: none;
+  border-right: none;
+  height: 6px;
+  left: 5px;
+  opacity: 0;
+  position: absolute;
+  top: 7px;
+  transform: rotate(-45deg);
+  width: 12px;
+}
+
+.checkbox-wrapper-18 .round input[type="checkbox"] {
+  visibility: hidden;
+  display: none;
+  opacity: 0;
+}
+
+.checkbox-wrapper-18 .round input[type="checkbox"]:checked + label {
+  background-color: #66bb6a;
+  border-color: #66bb6a;
+}
+
+.checkbox-wrapper-18 .round input[type="checkbox"]:checked + label:after {
+  opacity: 1;
+}
+
+.sign-up-holder {
+  position: absolute;
+  width: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  bottom: -9%;
+}
+.sign-up-holder .or-text {
+  position: relative;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.sign-up-holder .or-text::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 75px;
+  width: 160px;
+  height: 1px;
+  background-color: black;
+}
+.sign-up-holder .or-text::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 75px;
+  width: 160px;
+  height: 1px;
+  background-color: black;
+}
+
+/* General adjustments */
+.signin-holder {
+  padding: 20px;
+}
+.container {
+  padding: 0 16px;
+}
+
+.fade:not(.show) {
+  display: unset !important;
+  opacity: unset !important;
+}
+.about-ul {
+  display: none !important;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .signin-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+  .sign-in-form,
+  .sign-up-form {
+    width: 100% !important;
+    max-width: 400px;
+    padding: 20px;
+  }
+  .sign-in-button,
+  .sign-up-button {
+    width: 100%;
+  }
+  .vector-2-holder,
+  .vector-3-holder {
+    display: none;
+  }
+  .fade:not(.show) {
+    display: none !important;
+    opacity: 0 !important;
+  }
+  .about-ul {
+    display: flex !important;
+  }
+}
+/* Smaller mobile devices */
+@media (max-width: 480px) {
+  .welcome-text h1 {
+    font-size: 1.5em;
+    text-align: center;
+  }
+
+  .vector-2-holder,
+  .vector-3-holder {
+    display: none;
+  }
+
+  .sign-in-form,
+  .sign-up-form {
+    padding: 15px;
+    border-radius: 5px;
+  }
+
+  .sign-in-button,
+  .sign-up-button {
+    font-size: 12px;
+  }
+
+  .or-text::before,
+  .or-text::after {
+    width: 50px;
+  }
+}
+
+/* Toggle Buttons - Only for Mobile */
+.auth-toggle-buttons {
+  display: none; /* Default hidden */
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.toggle-btn {
+  background-color: #f5f5f5;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+  border-radius: 5px;
+}
+
+.toggle-btn.active {
+  background-color: #e58411;
+  color: white;
+}
+
+/* Hide forms unless active */
+.sign-in-form,
+.sign-up-form {
+  display: block; /* Always visible on larger screens */
+  transition: opacity 0.3s ease-in-out;
+}

@@ -1,0 +1,160 @@
+.products-container {
+  position: relative;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  overflow: hidden;
+}
+.products-title,
+.product-arrow {
+  color: #e58411 !important;
+}
+.product-arrow {
+  cursor: pointer;
+}
+.product-arrow svg {
+  position: relative;
+  right: 0;
+  transition: 0.3s all ease-in-out;
+}
+.product-arrow:hover svg {
+  right: 5px;
+}
+.products-container img {
+  width: 100%;
+  height: 100%;
+}
+.products-container h1 {
+  font-weight: 800;
+  font-size: 50px;
+}
+.products-container p {
+  font-weight: 300;
+  font-size: 18px;
+}
+.vector-8-holder {
+  position: absolute;
+  width: 100%;
+  top: 24%;
+  z-index: -1;
+}
+.vector-8-holder .vector-88 {
+  width: 590px;
+  height: 525px;
+  background-image: url("../assets/Vector-8.1.svg");
+  background-position: left center; /* Aligns the SVG to the right side */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-size: contain; /* Scales the image to fit within the container */
+  margin: 0; /* Removes default margin */
+}
+.vector-8-holder .vector-8 {
+  width: 510px;
+  height: 450px;
+  background-image: url("../assets/Vector-8.svg");
+  background-position: left center; /* Aligns the SVG to the right side */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-size: contain; /* Scales the image to fit within the container */
+  margin: 0; /* Removes default margin */
+  position: absolute;
+}
+.vector-9-holder {
+  position: absolute;
+  width: 100%;
+  top: 60%;
+  right: -10%;
+  z-index: -1;
+}
+.vector-9-holder .vector-99 {
+  width: 590px;
+  height: 530px;
+  background-image: url("../assets/Vector-9.1.svg");
+  background-position: right center; /* Aligns the SVG to the right side */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-size: contain; /* Scales the image to fit within the container */
+  margin: 0; /* Removes default margin */
+  position: absolute;
+  right: 0px;
+}
+.vector-9-holder .vector-9 {
+  width: 510px;
+  height: 450px;
+  background-image: url("../assets/Vector-9.svg");
+  background-position: right center; /* Aligns the SVG to the right side */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-size: contain; /* Scales the image to fit within the container */
+  margin: 0; /* Removes default margin */
+  position: absolute;
+  top: 25px;
+  right: 0;
+}
+.vector-10-holder {
+  position: absolute;
+  width: 100%;
+  top: 70%;
+  left: -5%;
+  z-index: -1;
+}
+.vector-10-holder .vector-1010 {
+  width: 510px;
+  height: 450px;
+  background-image: url("../assets/Vector-10.1.svg");
+  background-position: left center; /* Aligns the SVG to the right side */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-size: contain; /* Scales the image to fit within the container */
+  margin: 0; /* Removes default margin */
+  position: absolute;
+  top: 35px;
+}
+.vector-10-holder .vector-10 {
+  background-image: url("../assets/Vector-10.1.svg");
+  background-position: left center; /* Aligns the SVG to the right side */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-size: contain; /* Scales the image to fit within the container */
+  margin: 0; /* Removes default margin */
+  width: 590px;
+  height: 530px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.products-holder {
+  padding-top: 200px;
+}
+.products-holder img {
+  width: 230px;
+  height: 250px;
+  padding: 30px;
+  background-color: #fafafa;
+}
+.products-text h4 {
+  color: #0d1b39;
+}
+.products-container .products-price {
+  color: #0d1b39;
+  font-weight: 600;
+}
+body.dark-mode .products-add-holder .products-add {
+  background-color: #e58411;
+}
+body.dark-mode .products-text h4,
+body.dark-mode .products-container .products-price {
+  color: white;
+}
+@media (max-width: 992px) {
+  .products-row {
+    padding-top: 20px;
+  }
+  .products-container .products-main-img {
+    max-width: 400px;
+    height: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .products-row {
+    gap: 30px;
+  }
+}
+@media (max-width: 480px) {
+  .products-row {
+    gap: 20px;
+  }
+}

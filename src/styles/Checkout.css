@@ -1,0 +1,70 @@
+.checkout-line {
+  width: 100px;
+  height: 1px;
+  background-color: #d0d0d0;
+}
+.checkout-progress {
+  gap: 0.5rem;
+}
+.completed-step {
+  border-radius: 18px;
+  padding: 8px 10px;
+  background-color: #daffdb;
+  font-weight: 500;
+}
+
+.active-step {
+  color: black;
+  font-weight: 500;
+}
+
+.upcoming-step {
+  color: gray;
+  opacity: 0.5;
+}
+body.dark-mode .completed-step {
+  color: green;
+}
+body.dark-mode .active-step {
+  color: #e58411;
+}
+.checkout-cirlce {
+  font-size: 26px;
+}
+@media (max-width: 768px) {
+  .checkout-line {
+    width: 40px;
+  }
+  .checkout-cirlce {
+    font-size: 18px;
+  }
+  .checkout-container span {
+    font-size: 14px;
+  }
+  .checkout-progress {
+    gap: 0;
+  }
+  .checkout-progress div {
+    gap: 0 !important;
+  }
+}
+@media (max-width: 480px) {
+  .checkout-line {
+    width: 10px;
+  }
+  .checkout-cirlce {
+    font-size: 18px;
+  }
+  .checkout-container span {
+    font-size: 14px;
+  }
+  .completed-step {
+    padding: 4px 6px;
+  }
+  .checkout-progress {
+    gap: 0 !important;
+  }
+  .checkout-progress div {
+    gap: 0 !important;
+  }
+}
