@@ -1,6 +1,5 @@
 .cart-container {
   padding-top: 200px;
-  height: 200vh;
 }
 .cart-vector-holder {
   position: absolute;
@@ -104,6 +103,7 @@ body.dark-mode .products-delete {
   color: var(--white) !important;
   font-size: 18px;
   font-weight: bold;
+  margin-bottom: 40px;
 }
 .products-add {
   display: block;
