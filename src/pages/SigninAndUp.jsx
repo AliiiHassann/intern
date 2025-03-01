@@ -33,7 +33,7 @@ const SigninAndUp = ({ nextStep }) => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    if (token) {
+    if (token && location.pathname === "/checkout") {
       nextStep(); // If token exists, skip sign-in and go to the next step
     }
   }, [nextStep]);
@@ -85,7 +85,7 @@ const SigninAndUp = ({ nextStep }) => {
           setLoading(false);
           setLayer(false);
         }
-      }, 100000);
+      }, 2000);
     },
   });
   // Formik for Sign Up

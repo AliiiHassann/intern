@@ -353,6 +353,6 @@ body.dark-mode .smaller-sign-up {
     font-size: 12px;
   }
   .signin-holder {
-    padding: 5px;
+    padding: 0;
   }
 }
