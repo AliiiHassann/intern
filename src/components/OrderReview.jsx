@@ -34,7 +34,7 @@ const OrderReview = ({ prevStep }) => {
     const customerData = JSON.parse(localStorage.getItem("customerData"));
     const paymentMethod = localStorage.getItem("paymentMethod");
 
-    setLoading(true); // Start Loading
+    setLoading(true);
 
     try {
       const orderData = {
@@ -64,7 +64,7 @@ const OrderReview = ({ prevStep }) => {
       console.error("Error placing order:", error);
       alert("Failed to place order. Please try again.");
     } finally {
-      setLoading(false); // End Loading
+      setLoading(false);
     }
   };
   return (

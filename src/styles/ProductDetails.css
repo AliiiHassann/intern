@@ -106,5 +106,19 @@ body.dark-mode .product-details-container p {
     display: none;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 480px) {
+  .products-title h6 {
+    font-size: 12px;
+    margin: 0;
+  }
+  .details-buttons-holder h4 {
+    font-size: 14px;
+    margin: 0;
+  }
+  .go-to-cart {
+    padding: 10px 20px;
+  }
+  .products-title {
+    text-align: center;
+  }
 }

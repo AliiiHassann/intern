@@ -41,14 +41,14 @@ const Cart = () => {
             </div>
           </div>
         </div>
-        <div className='row pt-5'>
+        <section className='pt-5 px-2'>
           {totalAmount > 0 ? (
-            <div className='row cart-items'>
+            <div className='row pt-5 cart-items'>
               {cartItems.map((e, i) => {
                 return (
                   <div
                     key={i}
-                    className='d-flex align-items-center justify-content-around'
+                    className='d-flex justify-content-around cart-products'
                   >
                     <div className='col-lg-2'>
                       <img
@@ -144,13 +144,13 @@ const Cart = () => {
               <h1>Your Cart Is Empty</h1>
               <Link
                 to={"/products"}
-                className='text-decoration-none text-white bg-dark btn rounded-1 border-0'
+                className='text-decoration-none text-white continue-shopping btn rounded-1 border-0'
               >
                 Continue Shopping
               </Link>
             </div>
           )}
-        </div>
+        </section>
       </div>
     </div>
   );

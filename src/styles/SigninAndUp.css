@@ -236,20 +236,56 @@ body.dark-mode .sign-up-form {
   background-color: black;
 }
 
-/* General adjustments */
-.signin-holder {
-  padding: 20px;
-}
-.container {
-  padding: 0 16px;
-}
-
 .fade:not(.show) {
   display: unset !important;
   opacity: unset !important;
 }
 .about-ul {
   display: none !important;
+}
+.active-smaller-sign-in,
+.active-smaller-sign-up {
+  background-color: rgba(252, 239, 224, 1) !important;
+  color: #e58411 !important;
+  border-bottom: 1px solid #e58411 !important;
+  font-weight: 600;
+}
+.smaller-sign-in,
+.smaller-sign-up {
+  color: black !important;
+}
+body.dark-mode .smaller-sign-in,
+body.dark-mode .smaller-sign-up {
+  color: white !important;
+}
+/* Toggle Buttons - Only for Mobile */
+.auth-toggle-buttons {
+  display: none; /* Default hidden */
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.toggle-btn {
+  background-color: #f5f5f5;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+  border-radius: 5px;
+}
+
+.toggle-btn.active {
+  background-color: #e58411;
+  color: white;
+}
+
+/* Hide forms unless active */
+.sign-in-form,
+.sign-up-form {
+  display: block; /* Always visible on larger screens */
+  transition: opacity 0.3s ease-in-out;
 }
 
 /* Mobile adjustments */
@@ -297,6 +333,9 @@ body.dark-mode .sign-up-form {
     padding: 15px;
     border-radius: 5px;
   }
+  .sign-in-form {
+    height: 400px;
+  }
 
   .sign-in-button,
   .sign-up-button {
@@ -307,34 +346,13 @@ body.dark-mode .sign-up-form {
   .or-text::after {
     width: 50px;
   }
-}
-
-/* Toggle Buttons - Only for Mobile */
-.auth-toggle-buttons {
-  display: none; /* Default hidden */
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 15px;
-}
-
-.toggle-btn {
-  background-color: #f5f5f5;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
-  border-radius: 5px;
-}
-
-.toggle-btn.active {
-  background-color: #e58411;
-  color: white;
-}
-
-/* Hide forms unless active */
-.sign-in-form,
-.sign-up-form {
-  display: block; /* Always visible on larger screens */
-  transition: opacity 0.3s ease-in-out;
+  .signin-flex {
+    padding: 0;
+  }
+  .sign-up-p p {
+    font-size: 12px;
+  }
+  .signin-holder {
+    padding: 5px;
+  }
 }

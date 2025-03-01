@@ -33,7 +33,7 @@ const SigninAndUp = ({ nextStep }) => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    if (token && location.pathname === "/checkout") {
+    if (token) {
       nextStep(); // If token exists, skip sign-in and go to the next step
     }
   }, [nextStep]);
@@ -85,16 +85,9 @@ const SigninAndUp = ({ nextStep }) => {
           setLoading(false);
           setLayer(false);
         }
-      }, 2000);
+      }, 100000);
     },
   });
-  // Google Sign In
-  const handleGoogleSignIn = async () => {
-    window.open(
-      `http://test-ecomerce.xn--hrt-w-ova.de/api/user/social-login?account_type=google`,
-      "_self"
-    );
-  };
   // Formik for Sign Up
   const formikSignUp = useFormik({
     initialValues: {
@@ -171,7 +164,11 @@ const SigninAndUp = ({ nextStep }) => {
               onClick={() => handleActive("item1")}
               type='button'
               id='for-history'
-              className={isActive === "item1" ? "nav-link active" : "nav-link"}
+              className={
+                isActive === "item1"
+                  ? "active-smaller-sign-in nav-link active"
+                  : "smaller-sign-in nav-link"
+              }
               role='tab'
             >
               Sign In Form
@@ -182,7 +179,11 @@ const SigninAndUp = ({ nextStep }) => {
               onClick={() => handleActive("item2")}
               type='button'
               id='for-mission'
-              className={isActive === "item2" ? "nav-link active" : "nav-link"}
+              className={
+                isActive === "item2"
+                  ? "active-smaller-sign-up nav-link active"
+                  : "smaller-sign-up nav-link"
+              }
               role='tab'
             >
               Sign Up Form
@@ -355,7 +356,7 @@ const SigninAndUp = ({ nextStep }) => {
                         <label htmlFor='checkbox-18'></label>
                       </div>
                     </div>
-                    <div className='d-flex gap-2 flex-column'>
+                    <div className='d-flex gap-2 flex-column sign-up-p'>
                       <p>
                         Yes, I would like to receive personalized offers, tips
                         and tricks, and other information from Store.
@@ -375,10 +376,7 @@ const SigninAndUp = ({ nextStep }) => {
                   <div className='pt-4 d-flex align-items-center flex-column sign-up-holder'>
                     <span className='or-text'>Or</span>
                     <p className='fw-light'>Sign In With Google</p>
-                    <button
-                      style={{ backgroundColor: "transparent" }}
-                      onClick={handleGoogleSignIn}
-                    >
+                    <button style={{ backgroundColor: "transparent" }}>
                       <FcGoogle size={49} />
                     </button>
                   </div>

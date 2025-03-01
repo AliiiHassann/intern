@@ -66,16 +66,14 @@ const ProductDetails = () => {
         <img className='vector-1212' src={vector22} alt='' />
       </div>
       <div className='container'>
-        <Link to={"/home"} className='product-arrow'>
+        <Link to={"/products"} className='product-arrow'>
           <FaArrowLeft size={26} />
         </Link>
-        <div className='products-title d-flex '>
-          <h6>
-            Categories <MdKeyboardArrowRight size={20} />
-          </h6>
-          <h6>
-            {data.categories?.[0].title} <MdKeyboardArrowRight size={20} />
-          </h6>
+        <div className='products-title d-flex align-items-center'>
+          <h6>Categories</h6>
+          <MdKeyboardArrowRight size={20} />
+          <h6>{data.categories?.[0].title}</h6>
+          <MdKeyboardArrowRight size={20} />
           <h6>{data.title}</h6>
         </div>
         <div className='row pt-5'>

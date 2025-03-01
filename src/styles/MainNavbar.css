@@ -71,7 +71,7 @@
   .nav-item-holder,
   .home-shop-holder {
     flex-direction: column;
-    gap: 20px !important;
+    gap: 5px !important;
   }
   .dark-mode-collapse {
     display: flex;
@@ -91,6 +91,4 @@
     gap: 25px;
     padding-top: 20px !important;
   }
-}
-@media (max-width: 480px) {
 }

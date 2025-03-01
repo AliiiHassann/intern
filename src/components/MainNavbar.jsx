@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import "../styles/MainNavbar.css";
-import { FaSearch, FaShoppingBag, FaMoon, FaSun } from "react-icons/fa";
+import { FaShoppingBag } from "react-icons/fa";
 import sun from "../assets/sun.svg";
 import moon from "../assets/moon.svg";
 import english from "../assets/USA-flag.png";
@@ -49,11 +49,7 @@ const MainNavbar = () => {
   };
 
   return (
-    <header
-      className={`${
-        navState ? "fixed-top" : "sticky-top"
-      } header navbar-header pt-3`}
-    >
+    <header className={`fixed-top header navbar-header pt-3`}>
       <nav className='navbar navbar-expand-lg align-items-start'>
         <div className='container'>
           <Link to={"/"}>

@@ -13,6 +13,7 @@ import Cart from "./pages/Cart";
 import { Toaster } from "react-hot-toast";
 import Checkout from "./pages/Checkout";
 import Thanks from "./pages/Thanks";
+import AuthCallback from "./components/AuthCallback";
 
 export function ScrollToTop() {
   const { pathname } = useLocation();

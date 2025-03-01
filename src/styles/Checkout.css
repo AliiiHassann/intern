@@ -1,3 +1,6 @@
+.checkout-container {
+  padding-top: 100px;
+}
 .checkout-line {
   width: 100px;
   height: 1px;
@@ -56,10 +59,10 @@ body.dark-mode .active-step {
     font-size: 18px;
   }
   .checkout-container span {
-    font-size: 14px;
+    font-size: 12px;
   }
   .completed-step {
-    padding: 4px 6px;
+    padding: 4px 2px;
   }
   .checkout-progress {
     gap: 0 !important;

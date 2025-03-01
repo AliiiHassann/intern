@@ -9,11 +9,11 @@ import interior from "../assets/interior-light-room1.jpg";
 import feature1 from "../assets/feature-1.png";
 import feature2 from "../assets/feature-2.png";
 import feature3 from "../assets/feature-3.png";
-import vector4 from "../assets/Vector-4.svg";
+import vector4 from "../assets/Vector-4.2.svg";
 import vector44 from "../assets/Vector-4.1.svg";
 import vector5 from "../assets/Vector-5.svg";
 import vector55 from "../assets/Vector-5.1.svg";
-import vector6 from "../assets/Vector-6.svg";
+import vector6 from "../assets/Vector-6.2.svg";
 import vector66 from "../assets/Vector-6.1.svg";
 import { Link } from "react-router-dom";
 import { FaArrowDown } from "react-icons/fa";
@@ -132,7 +132,7 @@ const Home = () => {
           <img className='vector-44' src={vector44} alt='' />
         </div>
         <div className='container py-4'>
-          <div className='row justify-content-between align-items-center'>
+          <div className='row justify-content-between align-items-center second-row'>
             <div className='col-lg-5 col-md-5'>
               <div className='interior-image-holder'>
                 <img src={interior} alt='' className='w-100 h-100' />

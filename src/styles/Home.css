@@ -30,7 +30,7 @@
 .vector-5-holder .vector-55 {
   max-width: 300px;
   position: relative;
-  right: -72%;
+  right: -60%;
   top: 0;
 }
 .vector-5-holder .vector-5 {
@@ -102,9 +102,10 @@
   font-size: 50px;
   font-weight: 800;
 }
-.text-overlay h6 {
+.text-overlay div h6 {
   text-align: center;
   font-weight: 800;
+  color: rgba(255, 255, 255, 0.9);
 }
 .our-category {
   padding: 80px 0 50px 0;
@@ -213,7 +214,10 @@ body.dark-mode .our-category .home-feature-holder {
     margin: 20px 0 !important;
   }
   .our-category .first-row {
-    padding: 40px;
+    padding: 15px;
+  }
+  .second-row {
+    padding: 15px;
   }
   .our-category .feature-item .feature-text {
     max-width: 200px;
@@ -253,7 +257,6 @@ body.dark-mode .our-category .home-feature-holder {
   }
   .our-category-holder {
     text-align: start;
-    padding-left: 45px !important;
   }
   .our-category-holder h1 {
     font-size: 40px;
@@ -274,5 +277,12 @@ body.dark-mode .our-category .home-feature-holder {
   }
   .our-category .feature-item .feature-text {
     padding: 20px;
+  }
+  .text-overlay h1 {
+    font-size: 30px;
+    width: 32vh;
+  }
+  .text-overlay div h6 {
+    font-size: 14px;
   }
 }

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Thanks = () => {
   return (
-    <div className='container thanks-container pt-4'>
+    <div className='container thanks-container'>
       <div className='text-center'>
         <div className='pt-4 pb-4'>
           <h2>Thank You For Your Purchase!</h2>

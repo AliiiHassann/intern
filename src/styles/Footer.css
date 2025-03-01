@@ -9,12 +9,12 @@ body.dark-mode .footer-div {
 .main-text-footer {
   color: #f6973f;
 }
-.copyright {
-  color: #1e2833;
+.term-conditions {
+  text-align: end;
 }
 @media (max-width: 480px) {
   .footer-text {
-    padding: 1.5rem 0;
+    padding: 1.5rem 0 !important;
   }
   .copyright {
     text-align: unset !important;
