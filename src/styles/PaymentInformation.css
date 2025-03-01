@@ -5,11 +5,11 @@
   padding-top: 30px;
 }
 .form-buttons button {
-  background-color: #e58411;
+  background-color: var(--primary-color);
   padding: 18px;
   font-size: 16px;
   border-radius: 12px;
-  color: white;
+  color: var(--white);
 }
 .checkbox-wrapper-18 {
   padding-top: 4px;
@@ -49,8 +49,8 @@
 }
 
 .checkbox-wrapper-18 .round input[type="checkbox"]:checked + label {
-  background-color: #66bb6a;
-  border-color: #66bb6a;
+  background-color: var(--success-color);
+  border-color: var(--success-color);
 }
 
 .checkbox-wrapper-18 .round input[type="checkbox"]:checked + label:after {

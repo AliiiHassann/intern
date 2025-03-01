@@ -1,5 +1,5 @@
 body.dark-mode .footer-div {
-  background-color: #221506;
+  background-color: var(--primary-dark);
 }
 .footer-div {
   margin-top: auto;

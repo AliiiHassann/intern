@@ -1,6 +1,6 @@
 body {
   background-color: #f4f4f9 !important;
-  color: black !important;
+  color: var(--black) !important;
   transition: background-color 0.3s, color 0.3s;
 }
 

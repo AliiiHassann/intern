@@ -2,11 +2,11 @@
   height: 100vh;
 }
 body.dark-mode .customer-container input {
-  color: white;
+  color: var(--white);
 }
 .customer-data-form {
   border: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--black);
   width: 100%;
   background-color: transparent;
   padding: 20px;
@@ -18,9 +18,9 @@ body.dark-mode .customer-container input {
   padding-top: 30px;
 }
 .form-buttons button {
-  background-color: #e58411;
+  background-color: var(--primary-color);
   padding: 18px;
   font-size: 16px;
   border-radius: 12px;
-  color: white;
+  color: var(--white);
 }

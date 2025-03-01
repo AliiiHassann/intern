@@ -7,15 +7,15 @@
   border-radius: 18px;
 }
 body.dark-mode .order-product-holder {
-  background-color: #221506;
+  background-color: var(--primary-dark);
 }
 .order-image-holder {
   align-self: center;
-  background-color: white;
+  background-color: var(--white);
   border-radius: 20px;
 }
 body.dark-mode .order-image-holder {
-  background-color: #221506;
+  background-color: var(--primary-dark);
 }
 .order-delivery {
   border-radius: 20px;
@@ -23,7 +23,7 @@ body.dark-mode .order-image-holder {
   padding: 20px;
 }
 body.dark-mode .order-delivery {
-  background-color: #221506;
+  background-color: var(--primary-dark);
 }
 .order-payment {
   border-radius: 20px;
@@ -31,7 +31,7 @@ body.dark-mode .order-delivery {
   padding: 20px;
 }
 body.dark-mode .order-payment {
-  background-color: #221506;
+  background-color: var(--primary-dark);
 }
 .order-delivery,
 .order-payment {
@@ -39,11 +39,11 @@ body.dark-mode .order-payment {
   height: 190px;
 }
 .form-buttons a {
-  background-color: #e58411;
+  background-color: var(--primary-color);
   padding: 18px;
   font-size: 16px;
   border-radius: 12px;
-  color: white !important;
+  color: var(--white) !important;
   text-align: center;
 }
 @media (max-width: 992px) {

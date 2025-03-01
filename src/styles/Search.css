@@ -54,7 +54,7 @@
   box-sizing: border-box;
   font-size: 1em;
   border-radius: 50px;
-  border: 1px solid #e58411;
+  border: 1px solid var(--primary-color);
 }
 
 .input-icon {
@@ -81,7 +81,7 @@
   .search-container img {
     padding: 15px;
     border-radius: 20px;
-    background-color: #fff9f1;
+    background-color: var(--primary-light);
   }
   .search-holder {
     display: flex;
