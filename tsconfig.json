@@ -14,7 +14,10 @@
     "isolatedModules": true,
     "noEmit": true,
     "preserveSymlinks": false,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "paths": {
+      "react": ["./node_modules/@types/react"]
+    }
   },
   "include": ["src"]
 }
