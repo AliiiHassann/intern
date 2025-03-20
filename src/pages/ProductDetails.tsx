@@ -4,7 +4,7 @@ import api from "../api/api";
 import { Link, useParams } from "react-router-dom";
 import "../styles/ProductDetails.css";
 import { MdKeyboardArrowRight } from "react-icons/md";
-import { GoShareAndroid } from "react-icons/go";
+import { FaShareAlt } from "react-icons/fa";
 import vector2 from "../assets/Vector-2.svg";
 import vector3 from "../assets/Vector-3.svg";
 import vector22 from "../assets/Vector-2.1.svg";
@@ -117,7 +117,7 @@ const ProductDetails: React.FC = () => {
                 </div>
                 <div className='product-details-share-holder'>
                   <button className='product-details-share'>
-                    <GoShareAndroid size={24} />
+                    <FaShareAlt size={24} />
                   </button>
                   <p>Share</p>
                 </div>
