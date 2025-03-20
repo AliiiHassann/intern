@@ -29,15 +29,21 @@ const Footer: React.FC = () => {
           <div className='col-lg-3 col-md-6 col-sm-6 col-6 px-lg-5 ps-2 py-md-4 py-sm-4 footer-text'>
             <div className='pb-3 main-text-footer'>Follow Us</div>
             <div className='pb-3 d-flex align-items-center gap-2'>
-              <FaFacebookF size={20} />
+              <span>
+                <FaFacebookF size={20} />
+              </span>
               <div>Facebook</div>
             </div>
             <div className='pb-3 d-flex align-items-center gap-2'>
-              <FaTwitter size={20} />
+              <span>
+                <FaTwitter size={20} />
+              </span>
               <div>Twitter</div>
             </div>
             <div className='d-flex align-items-center gap-2'>
-              <FaInstagram size={20} />
+              <span>
+                <FaInstagram size={20} />
+              </span>
               <div>Instagram</div>
             </div>
           </div>
