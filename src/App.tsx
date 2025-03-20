@@ -15,9 +15,8 @@ import Checkout from "./pages/Checkout";
 import Thanks from "./pages/Thanks";
 import AuthCallback from "./components/AuthCallback";
 
-// **1️⃣ Fixed: Added explicit return type for `ScrollToTop`**
 const ScrollToTop: React.FC = () => {
-  const location = useLocation(); // No need to destructure `{ pathname }` directly
+  const location = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
