@@ -3,48 +3,71 @@ import "../styles/OrderReview.css";
 import card from "../assets/card-payment.png";
 import paypal from "../assets/paypal.png";
 import {
+  clearCart,
   selectCartItems,
   selectTotalQTY,
   setGetTotals,
 } from "../rtk/slices/cartSlice";
 import Axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { CartItem } from "../rtk/slices/cartSlice";
 
-const OrderReview = ({ prevStep }) => {
-  const cartItems = useSelector(selectCartItems);
-  const totalQTY = useSelector(selectTotalQTY);
+// Define Props Type
+interface OrderReviewProps {
+  prevStep: () => void;
+}
+
+// Define Order Data Type
+interface OrderData {
+  city: string;
+  streetName: string;
+  buildingNumber: string;
+}
+const OrderReview: React.FC<OrderReviewProps> = ({ prevStep }) => {
+  const cartItems: CartItem[] = useSelector(selectCartItems);
+  const totalQTY: number = useSelector(selectTotalQTY);
   const dispatch = useDispatch();
-  const [orderData, setOrderData] = useState({});
-  const [paymentMethod, setPaymentMethod] = useState("");
-  const [loading, setLoading] = useState(true);
+  const [orderData, setOrderData] = useState<OrderData | null>(null);
+  const [paymentMethod, setPaymentMethod] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
   const navigate = useNavigate();
+
   useEffect(() => {
-    const customerData = JSON.parse(localStorage.getItem("customerData"));
+    const customerData = localStorage.getItem("customerData");
     const paymentMethod = localStorage.getItem("paymentMethod");
 
-    setOrderData(customerData);
-    setPaymentMethod(paymentMethod);
-    setLoading(false);
+    if (customerData) {
+      setOrderData(JSON.parse(customerData));
+    }
+    if (paymentMethod) {
+      setPaymentMethod(paymentMethod);
+    }
 
     dispatch(setGetTotals());
   }, [cartItems, dispatch]);
+
   const placeOrder = async () => {
     const token = localStorage.getItem("token");
-    const customerData = JSON.parse(localStorage.getItem("customerData"));
+    const customerData = localStorage.getItem("customerData");
     const paymentMethod = localStorage.getItem("paymentMethod");
+
+    if (!customerData || !paymentMethod || !token) {
+      alert("Missing order details. Please complete all steps.");
+      return;
+    }
 
     setLoading(true);
 
     try {
-      const orderData = {
-        ...customerData,
+      const orderPayload = {
+        ...JSON.parse(customerData),
         paymentMethod,
       };
 
-      const response = await Axios.post(
+      const response = await Axios.post<{ payment_url?: string }>(
         "https://test-ecomerce.xn--hrt-w-ova.de/api/order/create",
-        orderData,
+        orderPayload,
         {
           headers: {
             Accept: "application/json",
@@ -54,11 +77,11 @@ const OrderReview = ({ prevStep }) => {
         }
       );
 
-      // Redirect to payment URL if present
       if (response.data.payment_url) {
         window.location.href = response.data.payment_url;
       } else {
         navigate("/thanks");
+        dispatch(clearCart());
       }
     } catch (error) {
       console.error("Error placing order:", error);
@@ -67,6 +90,7 @@ const OrderReview = ({ prevStep }) => {
       setLoading(false);
     }
   };
+
   return (
     <div className='order-container container pt-4'>
       <div className='text-center'>
@@ -81,26 +105,33 @@ const OrderReview = ({ prevStep }) => {
       </div>
       <div className='row order-row'>
         <div className='col-lg-6 pt-5'>
-          {cartItems.map((e, i) => {
-            return (
-              <div key={i}>
-                <h5>Your Shopping Cart {totalQTY}</h5>
-                <div className='d-flex gap-5 order-product-holder p-4'>
+          <h5>Your Shopping Cart ({totalQTY})</h5>
+          {cartItems.length > 0 ? (
+            cartItems.map((item, i) => (
+              <div key={item.id}>
+                <div className='d-flex gap-5 order-product-holder p-4 m-2'>
                   <div className='order-image-holder'>
-                    <img
-                      className='order-image'
-                      src={`https://test-ecomerce.xn--hrt-w-ova.de/${e.productimage?.[0].link}`}
-                      alt=''
-                    />
+                    {item.productimage && item.productimage.length > 0 ? (
+                      <img
+                        className='order-image'
+                        src={`https://test-ecomerce.xn--hrt-w-ova.de/${item.productimage[0].link}`}
+                        alt={item.title}
+                      />
+                    ) : (
+                      <p>No Image</p>
+                    )}
                   </div>
-                  <div className=''>
-                    <h5>{e.title}</h5>
-                    <p>{e.information}</p>
+                  <div>
+                    <h5>{item.title}</h5>
+                    <p>{item.information}</p>
+                    <h5 className='pt-4'>Quantity : {item.quantity}</h5>
                   </div>
                 </div>
               </div>
-            );
-          })}
+            ))
+          ) : (
+            <p>Your cart is empty.</p>
+          )}
         </div>
         <div className='col-lg-6 pt-5'>
           <div className='row'>
@@ -108,9 +139,9 @@ const OrderReview = ({ prevStep }) => {
               <h5>DELIVERY ADDRESS</h5>
               <div className='order-delivery d-flex flex-column justify-content-between'>
                 <div className=''>
-                  <p>{orderData.city}</p>
-                  <p>{orderData.streetName}</p>
-                  <p>{orderData.buildingNumber}</p>
+                  <p>{orderData?.city}</p>
+                  <p>{orderData?.streetName}</p>
+                  <p>{orderData?.buildingNumber}</p>
                 </div>
                 <div>
                   <span style={{ color: "#E58411", cursor: "pointer" }}>

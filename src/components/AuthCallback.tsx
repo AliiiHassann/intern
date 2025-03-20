@@ -1,15 +1,14 @@
-import React from "react";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const AuthCallback = () => {
+const AuthCallback: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchGoogleToken = async () => {
+    const fetchGoogleToken = async (): Promise<void> => {
       const urlParams = new URLSearchParams(window.location.search);
-      const authCode = urlParams.get("code");
+      const authCode: string | null = urlParams.get("code");
 
       if (!authCode) {
         alert("Google Authentication Failed");
@@ -18,7 +17,7 @@ const AuthCallback = () => {
       }
 
       try {
-        const response = await axios.post(
+        const response = await axios.post<{ data: { token: string } }>(
           "https://test-ecomerce.xn--hrt-w-ova.de/api/user/social-login",
           {
             account_type: "google",

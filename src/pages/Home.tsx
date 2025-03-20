@@ -4,7 +4,7 @@ import "../styles/Home.css";
 import fog from "../assets/FOG.png";
 import fogDark from "../assets/FOG-dark.png";
 import axios from "axios";
-import { FaLongArrowAltRight } from "react-icons/fa";
+import { FaLongArrowAltRight, FaArrowDown } from "react-icons/fa";
 import interior from "../assets/interior-light-room1.jpg";
 import feature1 from "../assets/feature-1.png";
 import feature2 from "../assets/feature-2.png";
@@ -16,13 +16,19 @@ import vector55 from "../assets/Vector-5.1.svg";
 import vector6 from "../assets/Vector-6.2.svg";
 import vector66 from "../assets/Vector-6.1.svg";
 import { Link } from "react-router-dom";
-import { FaArrowDown } from "react-icons/fa";
 import { DarkModeContext } from "../context/DarkModeContext";
 
-const Home = () => {
-  const [data, setData] = useState([]);
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(true);
+// Define Category Type
+interface Category {
+  id: number;
+  title: string;
+  image: string;
+}
+
+const Home: React.FC = () => {
+  const [data, setData] = useState<Category[]>([]);
+  const [error, setError] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(true);
   const { isDarkMode } = useContext(DarkModeContext);
 
   useEffect(() => {
@@ -30,7 +36,7 @@ const Home = () => {
 
     const fetchData = async () => {
       try {
-        const response = await api.get("/category/get", {
+        const response = await api.get<{ data: Category[] }>("/category/get", {
           headers: {
             Authorization: `Bearer YOUR_TOKEN_HERE`,
             "Accept-Language": "en",

@@ -1,29 +1,44 @@
 import React, { useEffect, useState } from "react";
 import "../styles/SigninAndUp.css";
-import { FaAt } from "react-icons/fa";
-import { FaLock } from "react-icons/fa";
-import { FaUserCircle } from "react-icons/fa";
+import { FaAt, FaLock, FaUserCircle } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import vector2 from "../assets/Vector-2.svg";
 import vector22 from "../assets/Vector-2.1.svg";
 import vector3 from "../assets/Vector-3.svg";
 import vector33 from "../assets/Vector-3.1.svg";
-import api from "../api/api"; // Import Axios
+import api from "../api/api"; // Axios instance
 import * as Yup from "yup";
-import { useNavigate } from "react-router-dom";
-import { useFormik } from "formik";
-import { useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useFormik, FormikHelpers } from "formik";
 
-const SigninAndUp = ({ nextStep }) => {
-  const [error, setError] = useState("");
-  const [errorSignUp, setErrorSignUp] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [layer, setLayer] = useState(false);
+// ** Define Types for Form Values **
+interface SignInValues {
+  email: string;
+  password: string;
+}
+
+interface SignUpValues {
+  name: string;
+  lastname: string;
+  email: string;
+  password: string;
+}
+
+// Define Props for the Component
+interface SigninAndUpProps {
+  nextStep?: () => void;
+}
+
+const SigninAndUp: React.FC<SigninAndUpProps> = ({ nextStep }) => {
+  const [error, setError] = useState<string | null>(null);
+  const [errorSignUp, setErrorSignUp] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [layer, setLayer] = useState<boolean>(false);
+  const [isActive, setIsActive] = useState<string>("item1");
   const navigate = useNavigate();
   const location = useLocation();
 
-  const [isActive, setIsActive] = useState("item1");
-  const handleActive = (val) => {
+  const handleActive = (val: string) => {
     if (val !== isActive) {
       setIsActive(val);
     } else {
@@ -33,17 +48,17 @@ const SigninAndUp = ({ nextStep }) => {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    if (token && location.pathname === "/checkout") {
-      nextStep(); // If token exists, skip sign-in and go to the next step
+    if (token && location.pathname === "/checkout" && nextStep) {
+      nextStep?.();
     }
   }, [nextStep]);
 
-  // Formik for Sign In
-  const formikSignIn = useFormik({
+  // **Formik for Sign In**
+  const formikSignIn = useFormik<SignInValues>({
     initialValues: {
       email: "",
       password: "",
-    },
+    } as SignInValues,
     validationSchema: Yup.object({
       email: Yup.string().email("Invalid email").required("Required"),
       password: Yup.string()
@@ -71,7 +86,7 @@ const SigninAndUp = ({ nextStep }) => {
           // Check if token is returned
           if (location.pathname === "/checkout") {
             localStorage.setItem("token", response.data.data.token);
-            nextStep();
+            nextStep?.();
           } else if (response.data.data.token) {
             localStorage.setItem("token", response.data.data.token);
             navigate("/home");
@@ -88,14 +103,15 @@ const SigninAndUp = ({ nextStep }) => {
       }, 2000);
     },
   });
-  // Formik for Sign Up
-  const formikSignUp = useFormik({
+
+  // **Formik for Sign Up**
+  const formikSignUp = useFormik<SignUpValues>({
     initialValues: {
       name: "",
       lastname: "",
       email: "",
       password: "",
-    },
+    } as SignUpValues,
     validationSchema: Yup.object({
       name: Yup.string().required("Required"),
       lastname: Yup.string().required("Required"),
@@ -123,7 +139,7 @@ const SigninAndUp = ({ nextStep }) => {
           );
           localStorage.setItem("token", response.data.data.token);
           if (location.pathname === "/checkout") {
-            nextStep();
+            nextStep?.();
           } else if (response.data.data.token) {
             localStorage.setItem("token", response.data.data.token);
             navigate("/home");
@@ -140,6 +156,7 @@ const SigninAndUp = ({ nextStep }) => {
       }, 2000);
     },
   });
+
   return (
     <div className='signin-holder'>
       {layer && (

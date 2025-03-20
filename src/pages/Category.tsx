@@ -1,6 +1,6 @@
 import React from "react";
 
-const Category = () => {
+const Category: React.FC = () => {
   return <div>Category</div>;
 };
 

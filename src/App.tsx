@@ -15,16 +15,18 @@ import Checkout from "./pages/Checkout";
 import Thanks from "./pages/Thanks";
 import AuthCallback from "./components/AuthCallback";
 
-export function ScrollToTop() {
-  const { pathname } = useLocation();
+// **1️⃣ Fixed: Added explicit return type for `ScrollToTop`**
+const ScrollToTop: React.FC = () => {
+  const location = useLocation(); // No need to destructure `{ pathname }` directly
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [location.pathname]);
 
   return null;
-}
-function App() {
+};
+
+const App: React.FC = () => {
   return (
     <div className='App'>
       <MainNavbar />
@@ -44,6 +46,6 @@ function App() {
       <Footer />
     </div>
   );
-}
+};
 
 export default App;

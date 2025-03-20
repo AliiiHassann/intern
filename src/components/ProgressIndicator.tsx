@@ -1,6 +1,11 @@
 import React from "react";
 
-const ProgressIndicator = ({ step }) => (
+// Define Props Type
+interface ProgressIndicatorProps {
+  step: number;
+}
+
+const ProgressIndicator: React.FC<ProgressIndicatorProps> = ({ step }) => (
   <div className='progress-indicator'>
     <span className={step >= 1 ? "active" : ""}>Cart</span>
     <span className={step >= 2 ? "active" : ""}>Shipping</span>

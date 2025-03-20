@@ -4,8 +4,21 @@ import * as Yup from "yup";
 import Axios from "axios";
 import "../styles/CustomerData.css";
 
-const CustomerData = ({ nextStep, prevStep }) => {
-  const customerFormik = useFormik({
+// Define Props Type
+interface CustomerDataProps {
+  nextStep: () => void;
+  prevStep: () => void;
+}
+
+// Define Form Values Type
+interface CustomerFormValues {
+  city: string;
+  streetName: string;
+  buildingNumber: string;
+}
+
+const CustomerData: React.FC<CustomerDataProps> = ({ nextStep, prevStep }) => {
+  const customerFormik = useFormik<CustomerFormValues>({
     initialValues: {
       city: "",
       streetName: "",
@@ -36,9 +49,6 @@ const CustomerData = ({ nextStep, prevStep }) => {
           }
         );
 
-        // Save customer data locally
-        localStorage.setItem("customerData", JSON.stringify(values));
-
         nextStep(); // Go to next step on success
       } catch (error) {
         console.error("Error submitting shipping details:", error);
@@ -49,7 +59,7 @@ const CustomerData = ({ nextStep, prevStep }) => {
 
   return (
     <div className='container customer-container pt-4'>
-      <div className=' text-center'>
+      <div className='text-center'>
         <div className='pt-4'>
           <h2>Your Customer Data For The Order</h2>
           <p>Bringing Your Style Home</p>

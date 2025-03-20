@@ -6,26 +6,26 @@ import vector7 from "../assets/Vector-7.2.svg";
 import vector77 from "../assets/Vector-7.1.svg";
 import { IoSearchOutline } from "react-icons/io5";
 
-const Search = () => {
+const Search: React.FC = () => {
   return (
     <div className='search-container'>
       <div className='container-fluid'>
         <div className='search-holder'>
           <div className='row position-relative text-center align-items-center search-row'>
             <div className='col-lg-3 col-md-3'>
-              <img src={livingRoom} alt='' />
+              <img src={livingRoom} alt='Living Room' />
             </div>
             <div className='col-lg-6 col-md-6'>
               <div className='search-vector-holder'>
-                <img className='vector-7' src={vector7} alt='' />
-                <img className='vector-77' src={vector77} alt='' />
+                <img className='vector-7' src={vector7} alt='Vector Design' />
+                <img className='vector-77' src={vector77} alt='Vector Design' />
               </div>
               <h1>Chic Furnishings Online</h1>
               <h1>Furniture Store</h1>
               <p>Discover Elegant Comfort for Every Room</p>
             </div>
             <div className='col-lg-3 col-md-3'>
-              <img src={bedroom} alt='' />
+              <img src={bedroom} alt='Bedroom' />
             </div>
           </div>
           <div className='input-icon-container'>

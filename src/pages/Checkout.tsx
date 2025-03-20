@@ -4,14 +4,18 @@ import SigninAndUp from "../pages/SigninAndUp";
 import CustomerData from "../components/CustomerData";
 import PaymentInformation from "../components/PaymentInformation";
 import OrderReview from "../components/OrderReview";
-import { FaRegCircle } from "react-icons/fa";
-import { FaRegCheckCircle } from "react-icons/fa";
+import { FaRegCircle, FaRegCheckCircle } from "react-icons/fa";
 import "../styles/Checkout.css";
 
-const Checkout = () => {
-  const [step, setStep] = useState(1);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [orderData, setOrderData] = useState({});
+// Define Order Data Type
+interface OrderData {
+  [key: string]: any;
+}
+
+const Checkout: React.FC = () => {
+  const [step, setStep] = useState<number>(1);
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [orderData, setOrderData] = useState<OrderData>({});
 
   // Check Authentication Status
   useEffect(() => {
@@ -19,15 +23,18 @@ const Checkout = () => {
     setIsAuthenticated(!token);
   }, [step]);
 
-  const nextStep = (data) => {
+  // Function to Move to Next Step
+  const nextStep = (data?: Partial<OrderData>) => {
     setOrderData({ ...orderData, ...data });
     setStep(step + 1);
   };
 
+  // Function to Move to Previous Step
   const prevStep = () => {
     setStep(step - 1);
   };
 
+  // Render Step Based on Current Step
   const renderStep = () => {
     switch (step) {
       case 1:
@@ -43,13 +50,15 @@ const Checkout = () => {
     }
   };
 
-  const renderIcon = (currentStep) => {
+  // Render Progress Icons
+  const renderIcon = (currentStep: number) => {
     if (step > currentStep)
       return <FaRegCheckCircle className='checkout-cirlce' color='green' />;
     return <FaRegCircle className='checkout-cirlce' color='gray' />;
   };
 
-  const getStepClass = (currentStep) => {
+  // Get Step Class for Styling
+  const getStepClass = (currentStep: number): string => {
     if (step > currentStep) return "completed-step";
     if (step === currentStep) return "active-step";
     return "upcoming-step";

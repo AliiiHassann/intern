@@ -1,13 +1,21 @@
 import React, { useState } from "react";
-import Axios from "axios";
 import "../styles/PaymentInformation.css";
 import cardPayment from "../assets/card-payment.png";
 import paypal from "../assets/paypal.png";
 
-const PaymentInformation = ({ nextStep, prevStep }) => {
-  const [paymentMethod, setPaymentMethod] = useState("");
+// Define Props Type
+interface PaymentInformationProps {
+  nextStep: () => void;
+  prevStep: () => void;
+}
 
-  const handlePayment = async () => {
+const PaymentInformation: React.FC<PaymentInformationProps> = ({
+  nextStep,
+  prevStep,
+}) => {
+  const [paymentMethod, setPaymentMethod] = useState<string>("");
+
+  const handlePayment = () => {
     if (!paymentMethod) {
       alert("Please select a payment method.");
       return;
